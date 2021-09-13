@@ -21,11 +21,11 @@ const Stack = createStackNavigator();
 const App = () =>{
   return(
   <NavigationContainer styles={styles.container}>
-    <Stack.Navigator initialRouteName="SignInPage">
+    <Stack.Navigator initialRouteName="Sign Out">
 
       <Stack.Screen name="Power Log" component={FinalLift} />
       <Stack.Screen
-       name="SignInPage"
+       name="Sign Out"
        options={{ headerShown: false }}
        component={SignIn} 
        />

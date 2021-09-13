@@ -8,8 +8,7 @@ import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import uuid from 'react-native-uuid';
 import DatePicker from 'react-native-date-picker'
 import InputSpinner from "react-native-input-spinner";
-import myLogo from './logo.png';
-const image = { uri: "https://reactjs.org/logo-og.png" };
+
 
 
 import 'react-native-gesture-handler';
@@ -31,14 +30,13 @@ const FinalLift= ({route,navigation}) =>{
     const [datecompo,setDatecompo] = useState(new Date());
     const [ date, setDate] = useState(getTodayDate());
     const [opendatemodal, setOpendatemodal] = useState(false)
-    const options = ["Squat", "Bench", "Deadlift"];
+    const options = ["Squat", "Bench", "Deadlift","Snatch" ,"Clean&Jerk","Clean"];
 
     const colref =  firestore().collection('todos').doc(userEmail).get();
     const ref = firestore().collection('todos'  ).doc(userEmail).collection(date);
     const [ loading, setLoading ] = useState(true);
     const [exercise,setExercise] = useState('');
 
-    console.log(date);
 
     /* When Component First Mount */
     useEffect(() => {
@@ -61,6 +59,9 @@ const FinalLift= ({route,navigation}) =>{
               setLoading(false);
           }
 
+          return() =>{
+            setTodos([]);
+          }
 
         });
     }, [date]);
@@ -99,7 +100,7 @@ const FinalLift= ({route,navigation}) =>{
 
     return(
         <SafeAreaView style={styles.container}>
-            <ImageBackground source={require('./logo.png')} resizeMode="contain" style={styles.image}>
+            <ImageBackground source={require('./powerlog3.png')} resizeMode="contain" style={styles.image}>
             <View style={styles.row}>
                 <View>
                     <SelectPicker style={styles.pickerStyle} placeholder="Exercise"

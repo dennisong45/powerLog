@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {View,Text,StyleSheet,Button, ProgressViewIOSComponent, TouchableOpacity,Image} from 'react-native';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
-import myLogo from './logo.png';
+
 import {
     GoogleSignin,
     GoogleSigninButton,
@@ -47,7 +47,7 @@ const SignIn = ({route,navigation}) =>{
 
         <Image
          style={{width: 50, height: 50}}
-         source={require('./logo.png')}
+         source={require('./powerlog2.png')}
           style={{ justifyContent: 'center' }}
         />
 
@@ -73,7 +73,7 @@ const SignIn = ({route,navigation}) =>{
   };
   const styles = StyleSheet.create({
     container:{
-      backgroundColor: "#155E63",
+      backgroundColor: "#BD202F",
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
