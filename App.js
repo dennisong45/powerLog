@@ -1,12 +1,8 @@
 import React, {useState} from 'react';
 import {FlatList} from 'react-native';
 import {View,Text,StyleSheet,Button} from 'react-native';
-import ListItem from './components/ListItem';
 import FinalLift from './components/FinalLift';
-import ItemList from './components/ItemList';
-import AddItem from './components/AddItem';
 import SignIn from './components/SignIn';
-import HomeScreen from './components/HomeScreen'
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import uuid from 'react-native-uuid';
 
@@ -26,7 +22,7 @@ const App = () =>{
   return(
   <NavigationContainer styles={styles.container}>
     <Stack.Navigator initialRouteName="SignInPage">
-      <Stack.Screen name="Lift" component={HomeScreen} />
+
       <Stack.Screen name="FinalLift" component={FinalLift} />
       <Stack.Screen
        name="SignInPage"
@@ -34,10 +30,7 @@ const App = () =>{
        component={SignIn} 
        />
        
-      <Stack.Screen
-       name="ItemList" 
-       component={ItemList} 
-       />
+
       
     </Stack.Navigator>
   </NavigationContainer>

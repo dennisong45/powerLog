@@ -2,8 +2,7 @@ import React, {useState, useEffect } from 'react';
 import {FlatList, SafeAreaView} from 'react-native';
 import SelectPicker from 'react-native-form-select-picker';
 import {ImageBackground,View,Text,StyleSheet,Button,TextInput,Picker,TouchableOpacity,Image} from 'react-native';
-import ListItem from './ListItem';
-import AddItem from './AddItem';
+
 import SignIn from './SignIn';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import uuid from 'react-native-uuid';
