@@ -23,7 +23,7 @@ const App = () =>{
   <NavigationContainer styles={styles.container}>
     <Stack.Navigator initialRouteName="SignInPage">
 
-      <Stack.Screen name="FinalLift" component={FinalLift} />
+      <Stack.Screen name="Power Log" component={FinalLift} />
       <Stack.Screen
        name="SignInPage"
        options={{ headerShown: false }}

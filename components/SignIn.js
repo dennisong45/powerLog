@@ -60,7 +60,7 @@ const SignIn = ({route,navigation}) =>{
                 size={GoogleSigninButton.Size.Wide}
                 color={GoogleSigninButton.Color.Light}
                 onPress={() => onGoogleButtonPress().then(() => 
-                  navigation.navigate('FinalLift',{
+                  navigation.navigate('Power Log',{
                     userName: user.displayName,
                     userEmail: user.email,
                   }))}
