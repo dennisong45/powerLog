@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {View,Text,StyleSheet,Button, ProgressViewIOSComponent, TouchableOpacity,Image} from 'react-native';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
+import { AppleButton,appleAuth } from '@invertase/react-native-apple-authentication';
 
 import {
     GoogleSignin,
@@ -16,6 +17,7 @@ GoogleSignin.configure({
 
 
 
+
 const SignIn = ({route,navigation}) =>{
     const [initializing, setInitializing] = useState(true);
     const [user, setUser] = useState();
@@ -28,6 +30,28 @@ const SignIn = ({route,navigation}) =>{
         // Sign-in the user with the credential
         return auth().signInWithCredential(googleCredential);
       }
+    
+      
+  async function onAppleButtonPress() {
+    // Start the sign-in request
+    const appleAuthRequestResponse = await appleAuth.performRequest({
+      requestedOperation: appleAuth.Operation.LOGIN,
+      requestedScopes: [appleAuth.Scope.EMAIL, appleAuth.Scope.FULL_NAME],
+    });
+
+    // Ensure Apple returned a user identityToken
+    if (!appleAuthRequestResponse.identityToken) {
+      throw 'Apple Sign-In failed - no identify token returned';
+    }
+
+    // Create a Firebase credential from the response
+    const { identityToken, nonce,email } = appleAuthRequestResponse;
+    const appleCredential = auth.AppleAuthProvider.credential(identityToken, nonce);
+
+    // Sign the user in with the credential
+    //alert(identityToken + "email :" + email);
+    return auth().signInWithCredential(appleCredential);
+  }
 
       useEffect(() => {
         const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
@@ -66,7 +90,19 @@ const SignIn = ({route,navigation}) =>{
                   }))}
               />
 
-
+        <AppleButton
+          buttonStyle={AppleButton.Style.WHITE}
+          buttonType={AppleButton.Type.SIGN_IN}
+          style={{
+            width: 160,
+            height: 45,
+          }}
+          onPress={() => onAppleButtonPress().then(() => 
+            navigation.navigate('Power Log',{
+              userName: user.displayName,
+              userEmail: user.email,
+            }))}
+        />
 
         </View>
     );
