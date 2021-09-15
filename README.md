@@ -12,6 +12,7 @@ React Native + Firebase Firestore + Google Firebase Authentication + Apple Sign 
 <img src="https://www.drupal.org/files/project-images/apple-signinbutton-560.JPEG" width="200"/>
 
 Published on iOS and Android (Pending)
+iOS Store Link : https://apps.apple.com/us/app/power-log-break-your-pr/id1585707805
 <br>
 <img src="https://user-images.githubusercontent.com/28703342/133318902-d5d204ae-07d7-4a4a-9707-a1ae469bd435.png" width="200" />
 <img src="https://user-images.githubusercontent.com/28703342/133318901-f4079bf4-e54c-4609-acf0-66aae23dc37d.png" width="200" />
